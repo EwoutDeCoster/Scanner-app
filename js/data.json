@@ -1,0 +1,32 @@
+{
+    "artikels": [
+        {
+            "ean": "5060359288059",
+            "naam": "Roomba i7 Grijs",
+            "prijs": 429.00,
+            "stock": 1,
+            "foto": "https://cdn.niwzi.be/images/ez_prod/3632/467379/hires/8110wsw1ehl._ac_sl1500__600x600.jpg"
+        },
+        {
+            "ean": "5400586527000",
+            "naam": "Cosy & Trendy Quintana Blue Dessertbord D22cm",
+            "prijs": 10.95,
+            "stock": 1,
+            "foto": "https://cdn.niwzi.be/images/ez_prod/4112/350549/hires/2936022-1548252940_600x600.jpg"
+        },
+        {
+            "ean": "5400586526911",
+            "naam": "Quintana Blue Plat Bord D27,5cm",
+            "prijs": 14.95,
+            "stock": 1,
+            "foto": "https://cdn.niwzi.be/images/ez_prod/4112/350548/hires/2936028-1548252934_600x600.jpg"
+        },
+        {
+            "ean": "1",
+            "naam": "Quintana Blue Plat Bord D27,5cm",
+            "prijs": 14.95,
+            "stock": 1,
+            "foto": "https://cdn.niwzi.be/images/ez_prod/5057/475742/hires/set-van-4-vierkante-silicone-vershouddeksels-9-5-14-19-en-25cm-1-1632632413_600x600.jpg"
+        }
+    ]
+}

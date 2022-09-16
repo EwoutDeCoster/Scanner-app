@@ -18,8 +18,11 @@ function zoekartikel() {
   .then((res) => res.json())
   .then((data) => {
     /*iterate over data.artikels*/
+    let flag = true;
     data.artikels.forEach((artikel) => {
       if(artikel.ean === ean) {
+        document.getElementById("onbekend").style.display = "none"
+        flag = false;
         let naam = artikel.naam
         let prijs = String(artikel.prijs)
         /*replace . with , in prijs*/
@@ -42,6 +45,7 @@ function zoekartikel() {
 
 
     })
+    flag ? onbekendeBarcode() : null;
   })
   /**/
 }
@@ -50,12 +54,21 @@ function hideArtikel() {
   document.getElementById("artikel").style.display = "none";
 }
 
+function onbekendeBarcode() {
+  hideArtikel();
+  document.getElementById("onbekend").style.display = "block";
+  setTimeout(() => {
+    document.getElementById("onbekend").style.display = "none";
+  }, 3000);
+}
+
 function init() {
     console.log("init");
     reactToEnterKey();
     document.getElementById("knop").addEventListener("click", () => zoekartikel(document.getElementById("knop").value));
     document.getElementById("ean").select();
     hideArtikel();
+    onbekendeBarcode();
 
 }
 

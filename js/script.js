@@ -63,12 +63,11 @@ function onbekendeBarcode() {
 }
 
 function init() {
+    hideArtikel();
     console.log("init");
     reactToEnterKey();
     document.getElementById("knop").addEventListener("click", () => zoekartikel(document.getElementById("knop").value));
     document.getElementById("ean").select();
-    hideArtikel();
-    onbekendeBarcode();
 
 }
 

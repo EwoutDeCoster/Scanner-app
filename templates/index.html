@@ -5,22 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="shortcut icon" href="assets\eva.ico" type="image/x-icon">
-    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='eva.ico') }}" type="image/x-icon">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <title>Prototype - Ewoutdc</title>
 </head>
 
 <body>
-    <div class="title"><img src="/assets/eva.png" alt="Elektro van Assche Logo" id="vanAssche">
+    <div class="title"><img src="{{ url_for('static', filename='eva.png') }}" alt="Elektro van Assche Logo" id="vanAssche">
         <h1>Scanner</h1>
     </div>
     <div id="content">
-        <input type="text" id="ean" placeholder="Barcode">
+        <!--<form method="post" style="width: 100%; align-items: center; justify-content: center; display: flex;">-->
+        <input type="text" id="ean" name="barcode" placeholder="Barcode">
         <p id="onbekend">Onbekende barcode!</p>
-        <p id="confirmation" style="color: green; font-weight: bold; display: none;">De URL is succesvol aangepast!</p>
-        <input id="knop" type="button" value="Zoek artikel" style="display:none"></input>
-
+        <input id="knop" type="button" value="Zoek artikel"></input>
+    <!--</form>-->
     </div>
     <div class="artikel" id="artikel">
         <div class="container">

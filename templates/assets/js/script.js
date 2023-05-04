@@ -12,9 +12,8 @@ function reactToEnterKey() {
 
 function zoekartikel() {
   let ean = document.getElementById("ean").value;
-  /* fetch data.json object */
   console.log("klik")
-  fetch(`http://127.0.0.1:8080/search?barcode=${ean}`)
+  fetch(`http://127.0.0.1:80/search?barcode=${ean}`)
   .then((res) => res.json())
   .then((data) => {
     /*iterate over data.artikels*/
@@ -25,12 +24,19 @@ function zoekartikel() {
         let naam = data.x_studio_label70
         let prijs = String(data.x_studio_verkoopprijs)
         prijs = prijs.replace(".", ",")
+        // only 2 decimals
+        prijs = prijs.substring(0, prijs.indexOf(",") + 3);
         
         let stock = data.x_studio_aanwezige_voorraad
-        let foto = data.image_512
+        if (data.image_512){
+          document.getElementById("foto").src = "data:image/jpeg;charset=utf-8;base64,"+data.image_512;
+        } else { 
+          document.getElementById("foto").src = "https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?format=webp&v=1530129081";
+          document.getElementById("foto").style.width = "300px";
+        }
+
         document.getElementById("naam").innerHTML = naam;
         document.getElementById("prijs").value = `€ ${prijs}`;
-        document.getElementById("foto").src = "data:image/jpeg;charset=utf-8;base64,"+foto;
         stock < 2 ? document.getElementById("laatste").style.display = "block" : document.getElementById("laatste").style.display = "none";
     console.log(data);
       document.getElementById("artikel").style.display = "block";
@@ -42,11 +48,11 @@ function zoekartikel() {
         hideArtikel();
       }, 10000);
 
-
-
-
-    flag ? onbekendeBarcode() : null;
   })
+  .catch((err) => {
+    console.log(err);
+    onbekendeBarcode();
+  });
   /**/
 }
 
